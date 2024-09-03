@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body dir="rtl">
+    <h1>משחק הסיפורים</h1>
+    <input type="text" placeholder="הכנס שם של שחקן" id="actor">
+    <br>
+    <input type="text" placeholder="כתוב מאכל" id="food">
+    <br>
+    <input type="text" placeholder="כתוב שם של חיה" id="animal">
+    <br>
+    <input type="text" placeholder="כתוב תואר  לדוגמא ערמומית " id="thoar">
+    <br>
+    <button onclick="start()">צור סיפור </button>
+    <p id="result"></p>
+
+
+    <script>
+       let actor = document.getElementById("actor")
+        let food = document.getElementById("food")
+        let animal = document.getElementById("animal")
+        let thoar = document.getElementById("thoar")
+        let result = document.getElementById("result")
+     
+
+
+function start() { 
+    let stories =  [
+    `לפני שנים רבות היה נער בשם ${actor.value} שחזר מהעבודה וראה על שאח שלו אכל לו את ה  ${food.value} הוא מאוד כעס עליו . וגרם לו להקיא על חיית המחמד שלו, ${animal.value} והחיה הייתה מאוד ${thoar.value}`
+    ,
+    `בשנת 20 לספירה היה אדם  בשם ${actor.value} שצד את ה ${food.value} למרות שיום לפני אכל , ${animal.value} והחיה הייתה מאוד ${thoar.value}`
+    ,
+    `בשנת 200 לספירה היה אישה  בשם ${actor.value} שצד את ה ${food.value} למרות שיום לפני אכל , ${animal.value} והחיה הייתה מאוד ${thoar.value}`
+
+
+]
+       
+
+
+        if(actor.value == ""  || food.value == "" || animal.value =="" || thoar.value == ""){
+            alert("לא מילאת את כל הטופס ")
+        }
+        else{
+            let num = getRandom(0,stories.length -1)
+            result.innerHTML = stories[num]
+        }
+        
+
+
+
+
+    }
+    
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+    </script>
+    
+</body>
+</html>
